@@ -1,3 +1,7 @@
 {
-    "svn.ignoreMissingSvnWarning": true
+    "svn.ignoreMissingSvnWarning": true,
+    "cmake.sourceDirectory": "${workspaceFolder}/.",
+    "files.associations": {
+        "iostream": "cpp"
+    }
 }
