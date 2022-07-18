@@ -1,57 +1,13 @@
 #include <iostream>
 #include <string>
 #include <stdio.h>
-#include <windows.h>
 
 #include <mono/jit/jit.h>
 #include <mono/metadata/assembly.h>
 #include <mono/metadata/debug-helpers.h>
 
-// #pragma comment (lib, "mono-2.0-sgen.lib")
-#define MONO_LIB_DIR "C:\\Program Files\\Mono\\lib"
-#define MONO_ETC_DIR "C:\\Program Files\\Mono\\etc"
+#include "utils.h"
 
-#define ASSERT_NOT_NULL(ptr)                                             \
-    do                                                                   \
-    {                                                                    \
-        if (ptr == nullptr)                                              \
-        {                                                                \
-            std::cout << "!!ERROR: " << #ptr << " is null" << std::endl; \
-            return 0;                                                    \
-        }                                                                \
-    } while (0)
-
-#define CHECK_EXC(exc)                                                    \
-    do                                                                    \
-    {                                                                     \
-        if (exc != nullptr)                                               \
-        {                                                                 \
-            std::cout << "!!ERROR: " << PyNet_ExceptionToString(exc) << std::endl; \
-            return 0;                                                     \
-        }                                                                 \
-    } while (0)
-
-class Region {
-public:
-    static int level;
-    std::string name;
-
-    Region (std::string name) {
-        this->name = name;
-        std::cout << std::endl;
-        std::cout << GetIdent() << "++++++++ " << name << " start +++++++++" << std::endl;
-        level += 1;
-    }
-
-    ~Region() {
-        level -= 1;
-        std::cout << GetIdent() << "======== " << name << " end =========" << std::endl;
-    }
-
-    static std::string GetIdent() {return std::string(level * 4, ' ');}
-};
-
-int Region::level = 0;
 
 char* PyNet_ExceptionToString(MonoObject *e) {
     MonoMethodDesc* mdesc = mono_method_desc_new(":ToString()", false);
@@ -84,13 +40,6 @@ void NativeMethodUsingInternalCall()
     std::cout << "In Native Method using Internl Call" << std::endl;
 }
 
-using std::string;
-string getCurrentDir() {
-    char buff[MAX_PATH];
-    GetModuleFileName( NULL, buff, MAX_PATH );
-    string::size_type position = string( buff ).find_last_of( "\\/" );
-    return string( buff ).substr( 0, position);
-}
 
 int main ()
 {

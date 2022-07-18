@@ -1,7 +1,17 @@
 {
     "svn.ignoreMissingSvnWarning": true,
     "cmake.sourceDirectory": "${workspaceFolder}/.",
+    "cmake.configureSettings": {
+        "CMAKE_TOOLCHAIN_FILE": "F:/CS/codebase/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows"
+    },
+    "cmake.debugConfig": {
+        "args": [
+        ]
+     },
     "files.associations": {
-        "iostream": "cpp"
-    }
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "xstring": "cpp"
+    },
 }

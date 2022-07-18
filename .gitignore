@@ -1,5 +1,5 @@
 # cmake
-build/*
+**/build/*
 
 # Prerequisites
 *.d
@@ -30,3 +30,5 @@ build/*
 # Executables
 *.out
 *.app
+
+/git-sizer.exe
