@@ -4,8 +4,8 @@
 #include <string>
 #include <windows.h>
 
-#define MONO_LIB_DIR "C:\\Program Files\\Mono\\lib"
-#define MONO_ETC_DIR "C:\\Program Files\\Mono\\etc"
+
+#define EXPORT __declspec(dllexport)
 
 #define ASSERT_NOT_NULL(ptr)                                             \
     do                                                                   \

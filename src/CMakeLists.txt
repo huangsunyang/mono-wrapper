@@ -1,5 +1,5 @@
 file(GLOB_RECURSE all_cpp_files *.cpp)
-add_executable(mono-wrapper ${all_cpp_files})
+add_library(mono-wrapper ${all_cpp_files})
 
 message(WARNING ${all_cpp_files})
 

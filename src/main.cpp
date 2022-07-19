@@ -41,12 +41,9 @@ void NativeMethodUsingInternalCall()
 }
 
 
-int main ()
+int _main ()
 {
     std::cout << getCurrentDir() << std::endl;
-
-    // windows stuff
-    mono_set_dirs(MONO_LIB_DIR, MONO_ETC_DIR);
 
     // create domain
     MonoDomain * my_domain = mono_jit_init("my-domain");
